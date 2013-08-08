@@ -10,7 +10,19 @@
         http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 
 	<context:component-scan base-package="com.axialhk.maiid.controller" />
+	<context:component-scan base-package="com.axialhk.maiid.service" />
+	<context:component-scan base-package="com.axialhk.maiid.dao" />
 
 	<mvc:annotation-driven />
+	
+	<bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="org.postgresql.Driver" />
+		<property name="url" value="jdbc:postgresql://50.87.55.46:5432/pearsolu_maiid" />
+		<property name="username" value="pearsolu_admin" />
+		<property name="password" value="99023384" />
+	</bean>
+	
 	
 </beans>
